@@ -5,9 +5,9 @@ If you use Binary Ninja on one project intensively, you probably observe that th
 
 Disclaimer: Although my script also makes a backup, to be 100% sure you do not lose your progress, you may want to manually create a backup! The author should not be responsible for any data loss. 
 
-usage:
+## usage:
 
-python shrink.py your_db.bndb
+    python shrink.py your_db.bndb
 
 You should find a new file named your_db_bk1.bndb, which is (hopefully) smaller than the original file. 
 
