@@ -19,7 +19,7 @@ Now that it is trivial to shrink the database -- just delete all but the last on
 
 Discussion:
 
-This script obviously deletes all the snapshots in your database. So it is ideal for archival purpose or when you are sure you do not need to revert back to an earlier status. 
+This script obviously deletes all but the most recent snapshots in your database. So it is ideal for archival purpose or when you are sure you do not need to revert back to an earlier status. 
 
 Interestingly, although the DB contains such snapshot information, I do not find a way to revert to earlier snapshots in the GUI. I am not sure if it is possible using the API, or this functionality is under development. 
 
