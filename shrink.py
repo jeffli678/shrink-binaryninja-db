@@ -31,17 +31,11 @@ def backup(db_path):
 
     return bk_done, bk_path
 
+def process_one_file(db_path):
 
-def main():
-
-    try:
-        db_path = sys.argv[1]
-    except:
-        print('usage: python shrink.py your_db.bndb')
-        return
-    
     if not os.path.exists(db_path) or not os.path.isfile(db_path):
-        print('DB file does not exist. You need to practice your typing ^_^')
+        print('DB file %s does not exist. \
+            You need to practice your typing ^_^' % db_path)
         return
 
     # create a backup; I do not want to accidentally corrupt your db
@@ -66,8 +60,19 @@ def main():
     # commit changes
     conn.commit()
     conn.close()
- 
+    
+    print('replaing the original database')
+    shutil.move(bk_path, db_path)
+
     print('Done! Please check if your work are still there. ')
+
+def main():
+
+    if len(sys.argv) > 1:
+        for db_path in sys.argv[1 : ]:
+            process_one_file(db_path)
+    else:
+        print('usage: python shrink.py your_db.bndb')
 
 if __name__ == '__main__':
     main()
